@@ -46,9 +46,6 @@ const layout = [
 ]
 
 
-
-
-
 //EVENT LISTENERS --------------------------
 document.addEventListener('keyup', control)
 
@@ -80,7 +77,6 @@ createBoard()
 //start position of pacman
 let pacmanCurrentIndex = 490
 squares[pacmanCurrentIndex].classList.add('pacman')
-
 
 //keyboard control
 function control(e) {
@@ -131,23 +127,25 @@ function pacDotEaten() {
 
 
 //CLASSES --------------------------------
-
 class Ghost {
     constructor(className, startIndex, speed) {
         this.className = className
         this.startIndex = startIndex
         this.speed = speed
+        this.currentIndex =  startIndex
+        this.timerId = NaN
     }
 }
 
-const ghost = [
-    new Ghost('blinky', 348, 250)
-    new Ghost('pinky', 376, 400)
-    new Ghost('inky', 351, 300)
+const ghosts = [
+    new Ghost('blinky', 348, 250),
+    new Ghost('pinky', 376, 400),
+    new Ghost('inky', 351, 300),
     new Ghost('clyde', 379, 500)
 ]
 
-//draw ghosts onto the grid
-ghost.forEach(ghost => { squares[ghost.startIndex].classList.add(ghost.className)})
+//draw my ghosts onto my grid
+ghosts.forEach(ghost => squares[ghost.startIndex].classList.add(ghost.className))
+
 
 

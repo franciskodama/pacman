@@ -71,7 +71,7 @@ img {
   background-color: green;
   border: 5px solid white;
   box-sizing: border-box;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 .wall {
@@ -137,7 +137,7 @@ img {
 }
 
 .inky {
-  background-color: blue;
+  background-color: aqua;
 }
 
 .clyde {
