@@ -1,7 +1,7 @@
 /*
 
 Color Scheme:
-    Blue: #12B3D8
+    Blue: #5558ff
     Orange: #FF860F
     Green: #B3F90E
     Light Gray: #F5F5F5
@@ -75,7 +75,7 @@ img {
 }
 
 .wall {
-  background-color: rgb(104, 104, 224);
+  background-color: #5558ff;
 }
 
 .power-pellet {
@@ -123,9 +123,18 @@ img {
 .blinky,
 .pinky,
 .inky,
-.clyde {
+.clyde,
+.scared-ghost {
   border: none;
-  border-radius: 20%;
+  background: url(../img/ghost.svg);
+  background-size: 1rem 1rem;
+
+  /* clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); */
+  /* clip-path: path('M186.1.09C81.01 3.24 0 94.92 0 200.05v263.92c0 14.26 17.23 21.39 27.31 11.31l24.92-18.53c6.66-4.95 16-3.99 21.51 2.21l42.95 48.35c6.25 6.25 16.38 6.25 22.63 0l40.72-45.85c6.37-7.17 17.56-7.17 23.92 0l40.72 45.85c6.25 6.25 16.38 6.25 22.63 0l42.95-48.35c5.51-6.2 14.85-7.17 21.51-2.21l24.92 18.53c10.08 10.08 27.31 2.94 27.31-11.31V192C384 84 294.83-3.17 186.1.09zM128 224c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm128 0c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z'; */
+  /* clip-path: path("M 0 200 L 0,75 A 5,5 0,0,1 150,75 L 200 200 z"); */
+  /* clip-path: path(
+    "M0.5,1 C0.5,1,0,0.7,0,0.3 A0.25,0.25,1,1,1,0.5,0.3 A0.25,0.25,1,1,1,1,0.3 C1,0.7,0.5,1,0.5,1 Z"
+  ); */
 }
 
 .blinky {
@@ -142,6 +151,10 @@ img {
 
 .clyde {
   background-color: orange;
+}
+
+.scared-ghost {
+  background-color: aquamarine;
 }
 
 /* --- HEADER --- */

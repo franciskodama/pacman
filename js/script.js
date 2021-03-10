@@ -26,7 +26,7 @@ const layout = [
     1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,
     1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,
     1,1,1,1,1,1,0,1,1,4,4,4,4,4,4,4,4,4,4,1,1,0,1,1,1,1,1,1,
-    1,1,1,1,1,1,0,1,1,4,1,1,1,2,2,1,1,1,4,1,1,0,1,1,1,1,1,1,
+    1,1,1,1,1,1,0,1,1,4,1,1,4,2,2,4,1,1,4,1,1,0,1,1,1,1,1,1,
     1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
     4,4,4,4,4,4,0,0,0,4,1,2,2,2,2,2,2,1,4,0,0,0,4,4,4,4,4,4,
     1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
@@ -115,6 +115,9 @@ function control(e) {
     }
     squares[pacmanCurrentIndex].classList.add('pacman')
     pacDotEaten()
+    powerPelletEaten()
+    checkForWin()
+    checkForGameOver()
 }
 
 function pacDotEaten() {
@@ -125,6 +128,18 @@ function pacDotEaten() {
     }
 }
 
+function powerPelletEaten() {
+    if (squares[pacmanCurrentIndex].classList.contains('power-pellet')) {
+        squares[pacmanCurrentIndex].classList.remove('power-pellet')
+        score +=10
+        ghosts.forEach(ghost => ghost.isScared = true)
+        setTimeout(unScaredGhosts, 10000)
+    }
+}
+
+function unScaredGhosts() {
+    ghosts.forEach(ghost => ghost.isScared = false)
+}
 
 //CLASSES --------------------------------
 class Ghost {
@@ -132,7 +147,8 @@ class Ghost {
         this.className = className
         this.startIndex = startIndex
         this.speed = speed
-        this.currentIndex =  startIndex
+        this.currentIndex = startIndex
+        this.isScared = false
         this.timerId = NaN
     }
 }
@@ -145,7 +161,63 @@ const ghosts = [
 ]
 
 //draw my ghosts onto my grid
-ghosts.forEach(ghost => squares[ghost.startIndex].classList.add(ghost.className))
+ghosts.forEach(ghost => {
+    squares[ghost.currentIndex].classList.add(ghost.className)
+    squares[ghost.currentIndex].classList.add('ghost')
+})
 
+//move the ghosts
+ghosts.forEach(ghost => moveGhost(ghost))
 
+function moveGhost(ghost) {
+    const directions = [-1, +1, -width, +width]
+    let direction = directions[Math.floor(Math.random() * directions.length)]
+
+    ghost.timerId = setInterval(function() {
+         if (
+             !squares[ghost.currentIndex + direction].classList.contains('wall') &&
+             !squares[ghost.currentIndex + direction].classList.contains('ghost')
+            ) {
+                squares[ghost.currentIndex].classList.remove(ghost.className)
+                squares[ghost.currentIndex].classList.remove('ghost', 'scared-ghost')
+                ghost.currentIndex += direction
+                squares[ghost.currentIndex].classList.add(ghost.className)
+                squares[ghost.currentIndex].classList.add('ghost')
+            } else direction = directions[Math.floor(Math.random() * directions.length)]
+
+            //if the ghost is currently scared
+            if (ghost.isScared) {
+                squares[ghost.currentIndex].classList.add('scared-ghost')
+            }
+
+            //if the ghost is currently scared AND pacman is on it
+            if (
+                ghost.isScared &&
+                squares[ghost.currentIndex].classList.contains('pacman')) {
+                    squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
+                    ghost.currentIndex = ghost.startIndex
+                    score +=100 
+                    squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
+                }
+                checkForGameOver()
+             }, ghost.speed)
+}
+
+function checkForGameOver() {
+    if (
+        !squares[pacmanCurrentIndex].classList.contains('scared-ghost') &&
+        squares[pacmanCurrentIndex].classList.contains('ghost')) { 
+        ghosts.forEach(ghost => clearInterval(ghost.timerId))
+        document.removeEventListener('keyup', control)
+        scoreDisplay.innerHTML = "YOU LOSE"
+    } 
+}
+
+function checkForWin() {
+    if (score === 274) {
+        ghosts.forEach(ghost => clearInterval(ghost.timerId))
+        document.removeEventListener('keyup', control)
+        scoreDisplay.innerHTML = "YOU WON"
+    }
+}
 
