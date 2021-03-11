@@ -25,19 +25,21 @@ body {
   padding: 10;
 }
 
+body {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 16px;
+  background-color: black;
+  color: #b3f90e;
+  line-height: 1.6;
+}
+
 /* * {
   box-sizing: border-box;
   margin: 10;
   padding: 10;
 }
 
-body {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 16px;
-  background-color: white;
-  color: #212121;
-  line-height: 1.6;
-}
+
 
 img {
   max-width: 100%;
@@ -67,30 +69,33 @@ img {
   height: 15px;
 }
 
-.pac-dot {
-  background-color: green;
-  border: 5px solid white;
-  box-sizing: border-box;
-  /* border-radius: 50%; */
+.wall {
+  background-color: blue;
 }
 
-.wall {
-  background-color: #5558ff;
+.pac-dot,
+.power-pellet {
+  background-color: green;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.pac-dot {
+  border: 5px solid black;
 }
 
 .power-pellet {
-  background-color: green;
-  border-radius: 7.5px;
+  border: 2px solid black;
 }
 
 /* --- CHARACTERS --- */
 
 .pacman {
-  /* background-color: #f2d648; */
-  background-color: orange;
+  background-color: #faff22;
   border-radius: 50%;
   border: none;
   position: relative;
+  width: 15px;
 }
 
 .pacman-mouth {
@@ -126,9 +131,13 @@ img {
 .clyde,
 .scared-ghost {
   border: none;
-  background: url(../img/ghost.svg);
-  background-size: 1rem 1rem;
 
+  /* clip-path: url(../img/ghost.svg); */
+  /* clip-path: path(
+    "M447.295,512l-69.107-73.634l-61.094,65.1L256,438.366l-61.094,65.1l-61.094-65.1L64.705,512V191.295
+	C64.705,85.812,150.517,0,256,0s191.295,85.812,191.295,191.295V512z M256,414.95l61.094,65.1l61.094-65.1l53.082,56.567V191.295
+	c0-96.649-78.621-175.27-175.27-175.27S80.73,94.646,80.73,191.295v280.222l53.082-56.567l61.094,65.1L256,414.95z"
+  ); */
   /* clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); */
   /* clip-path: path('M186.1.09C81.01 3.24 0 94.92 0 200.05v263.92c0 14.26 17.23 21.39 27.31 11.31l24.92-18.53c6.66-4.95 16-3.99 21.51 2.21l42.95 48.35c6.25 6.25 16.38 6.25 22.63 0l40.72-45.85c6.37-7.17 17.56-7.17 23.92 0l40.72 45.85c6.25 6.25 16.38 6.25 22.63 0l42.95-48.35c5.51-6.2 14.85-7.17 21.51-2.21l24.92 18.53c10.08 10.08 27.31 2.94 27.31-11.31V192C384 84 294.83-3.17 186.1.09zM128 224c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm128 0c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z'; */
   /* clip-path: path("M 0 200 L 0,75 A 5,5 0,0,1 150,75 L 200 200 z"); */
@@ -138,23 +147,23 @@ img {
 }
 
 .blinky {
-  background-color: red;
+  background: url(../img/ghost_yellow.svg);
 }
 
 .pinky {
-  background-color: pink;
+  background: url(../img/ghost_pink.svg);
 }
 
 .inky {
-  background-color: aqua;
+  background: url(../img/ghost_aqua.svg);
 }
 
 .clyde {
-  background-color: orange;
+  background: url(../img/ghost_red.svg);
 }
 
 .scared-ghost {
-  background-color: aquamarine;
+  background: url(../img/ghost_scared.svg);
 }
 
 /* --- HEADER --- */
