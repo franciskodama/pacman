@@ -73,9 +73,15 @@ img {
   background-color: blue;
 }
 
+.wall-horizontal {
+  border-width: 5px;
+  border-style: double;
+  border-color: blue;
+}
+
 .pac-dot,
 .power-pellet {
-  background-color: green;
+  background-color: #f4b191;
   box-sizing: border-box;
   border-radius: 50%;
 }
@@ -90,12 +96,29 @@ img {
 
 /* --- CHARACTERS --- */
 
-.pacman {
+/* .pacman {
+  background: url(../img/pacman-right.svg);
   background-color: #faff22;
   border-radius: 50%;
   border: none;
   position: relative;
   width: 15px;
+} */
+
+.pacman-right {
+  background: url(../img/pacman-right.svg);
+}
+
+.pacman-left {
+  background: url(../img/pacman-left.svg);
+}
+
+.pacman-up {
+  background: url(../img/pacman-up.svg);
+}
+
+.pacman-down {
+  background: url(../img/pacman-down.svg);
 }
 
 .pacman-mouth {
@@ -131,39 +154,26 @@ img {
 .clyde,
 .scared-ghost {
   border: none;
-
-  /* clip-path: url(../img/ghost.svg); */
-  /* clip-path: path(
-    "M447.295,512l-69.107-73.634l-61.094,65.1L256,438.366l-61.094,65.1l-61.094-65.1L64.705,512V191.295
-	C64.705,85.812,150.517,0,256,0s191.295,85.812,191.295,191.295V512z M256,414.95l61.094,65.1l61.094-65.1l53.082,56.567V191.295
-	c0-96.649-78.621-175.27-175.27-175.27S80.73,94.646,80.73,191.295v280.222l53.082-56.567l61.094,65.1L256,414.95z"
-  ); */
-  /* clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); */
-  /* clip-path: path('M186.1.09C81.01 3.24 0 94.92 0 200.05v263.92c0 14.26 17.23 21.39 27.31 11.31l24.92-18.53c6.66-4.95 16-3.99 21.51 2.21l42.95 48.35c6.25 6.25 16.38 6.25 22.63 0l40.72-45.85c6.37-7.17 17.56-7.17 23.92 0l40.72 45.85c6.25 6.25 16.38 6.25 22.63 0l42.95-48.35c5.51-6.2 14.85-7.17 21.51-2.21l24.92 18.53c10.08 10.08 27.31 2.94 27.31-11.31V192C384 84 294.83-3.17 186.1.09zM128 224c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm128 0c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z'; */
-  /* clip-path: path("M 0 200 L 0,75 A 5,5 0,0,1 150,75 L 200 200 z"); */
-  /* clip-path: path(
-    "M0.5,1 C0.5,1,0,0.7,0,0.3 A0.25,0.25,1,1,1,0.5,0.3 A0.25,0.25,1,1,1,1,0.3 C1,0.7,0.5,1,0.5,1 Z"
-  ); */
 }
 
 .blinky {
-  background: url(../img/ghost_yellow.svg);
+  background: url(../img/ghost-yellow.svg);
 }
 
 .pinky {
-  background: url(../img/ghost_pink.svg);
+  background: url(../img/ghost-pink.svg);
 }
 
 .inky {
-  background: url(../img/ghost_aqua.svg);
+  background: url(../img/ghost-aqua.svg);
 }
 
 .clyde {
-  background: url(../img/ghost_red.svg);
+  background: url(../img/ghost-red.svg);
 }
 
 .scared-ghost {
-  background: url(../img/ghost_scared.svg);
+  background: url(../img/ghost-scared.svg);
 }
 
 /* --- HEADER --- */

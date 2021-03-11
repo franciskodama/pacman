@@ -76,25 +76,29 @@ createBoard()
 
 //start position of pacman
 let pacmanCurrentIndex = 490
-squares[pacmanCurrentIndex].classList.add('pacman')
+squares[pacmanCurrentIndex].classList.add('pacman-right')
 
 //keyboard control
 function control(e) {
-    squares[pacmanCurrentIndex].classList.remove('pacman')
+    squares[pacmanCurrentIndex].classList.remove('pacman-right', 'pacman-left', 'pacman-down', 'pacman-up')
     switch (e.keyCode) {
         case 40:
         if (
             !squares[pacmanCurrentIndex + width].classList.contains('wall') &&
             !squares[pacmanCurrentIndex + width].classList.contains('ghost-lair') &&
             pacmanCurrentIndex + width < width * width) 
-            pacmanCurrentIndex += width 
+            pacmanCurrentIndex += width
+            squares[pacmanCurrentIndex].classList.remove('pacman-left', 'pacman-right', 'pacman-up')
+            squares[pacmanCurrentIndex].classList.add('pacman-down')
         break
         case 38:
         if (
             !squares[pacmanCurrentIndex - width].classList.contains('wall') &&
             !squares[pacmanCurrentIndex - width].classList.contains('ghost-lair') &&
             pacmanCurrentIndex - width >= 0)
-            pacmanCurrentIndex -= width 
+            pacmanCurrentIndex -= width
+            squares[pacmanCurrentIndex].classList.remove('pacman-left', 'pacman-right', 'pacman-down')
+            squares[pacmanCurrentIndex].classList.add('pacman-up')
         break
         case 37:
         if (
@@ -102,6 +106,8 @@ function control(e) {
             !squares[pacmanCurrentIndex - 1].classList.contains('ghost-lair') &&
             pacmanCurrentIndex % width !== 0)            
             pacmanCurrentIndex -=1
+            squares[pacmanCurrentIndex].classList.remove('pacman-down', 'pacman-right', 'pacman-up')
+            squares[pacmanCurrentIndex].classList.add('pacman-left')
         if (pacmanCurrentIndex === 364) pacmanCurrentIndex = 391
         break
         case 39:
@@ -110,10 +116,12 @@ function control(e) {
             !squares[pacmanCurrentIndex + 1].classList.contains('ghost-lair') &&
             pacmanCurrentIndex % width < width - 1)
             pacmanCurrentIndex +=1
+            squares[pacmanCurrentIndex].classList.remove('pacman-left', 'pacman-down', 'pacman-up')
+            squares[pacmanCurrentIndex].classList.add('pacman-right')
         if (pacmanCurrentIndex === 391) pacmanCurrentIndex = 364
         break
     }
-    squares[pacmanCurrentIndex].classList.add('pacman')
+    squares[pacmanCurrentIndex].classList.add('pacman-right')
     pacDotEaten()
     powerPelletEaten()
     checkForWin()
@@ -193,7 +201,7 @@ function moveGhost(ghost) {
             //if the ghost is currently scared AND pacman is on it
             if (
                 ghost.isScared &&
-                squares[ghost.currentIndex].classList.contains('pacman')) {
+                squares[ghost.currentIndex].classList.contains('pacman-right', 'pacman-left', 'pacman-down', 'pacman-up')) {
                     squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
                     ghost.currentIndex = ghost.startIndex
                     score +=100 
