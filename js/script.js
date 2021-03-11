@@ -2,6 +2,7 @@
 const width = 28
 let squares = []
 let score = 0
+// const wall = 'wall-horizontal', 'wall-curve-top-left', 'wall-vertical-left', 'wall-vertical-right', 'wall-curve-top-right', 'wall-curve-bottom-right', 'wall-curve-bottom-left', 'wall-curve-top-left2', 'wall-curve-top-right2'
 
 //SELECTORS --------------------------------
 
@@ -15,34 +16,34 @@ const scoreDisplay = document.getElementById('score')
   // 3 - power-pellet
   // 4 - empty
 const layout = [
-    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-    1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1,
-    1,3,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,3,1,
-    1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1,
-    1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,1,
-    1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,1,
-    1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,
-    1,1,1,1,1,1,0,1,1,4,4,4,4,4,4,4,4,4,4,1,1,0,1,1,1,1,1,1,
-    1,1,1,1,1,1,0,1,1,4,1,1,4,2,2,4,1,1,4,1,1,0,1,1,1,1,1,1,
-    1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
-    4,4,4,4,4,4,0,0,0,4,1,2,2,2,2,2,2,1,4,0,0,0,4,4,4,4,4,4,
-    1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
-    1,1,1,1,1,1,0,1,1,4,1,1,1,1,1,1,1,1,4,1,1,0,1,1,1,1,1,1,
-    1,1,1,1,1,1,0,1,1,4,1,1,1,1,1,1,1,1,4,1,1,0,1,1,1,1,1,1,
-    1,0,0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,1,
-    1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1,
-    1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1,
-    1,3,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,3,1,
-    1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1,
-    1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1,
-    1,0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,1,
-    1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1,
-    1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1,
-    1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 
+    2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
+    6,0,0,0,0,0,0,0,0,0,0,0,0,2,9,0,0,0,0,0,0,0,0,0,0,0,0,7,
+    6,0,2,1,1,9,0,2,1,1,1,9,0,6,7,0,2,1,1,1,9,0,2,1,1,9,0,7,
+    6,3,6,4,4,7,0,6,4,4,4,7,0,6,7,0,6,4,4,4,7,0,6,4,4,7,3,7,
+    6,0,5,1,1,8,0,5,1,1,1,8,0,5,8,0,5,1,1,1,8,0,5,1,1,8,0,7,
+    6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,
+    6,0,2,1,1,9,0,2,1,1,1,1,1,1,1,1,1,1,1,1,9,0,2,1,1,9,0,7,
+    6,0,5,1,1,8,0,5,1,1,1,1,1,11,12,1,1,1,1,1,8,0,5,1,1,8,0,7,
+    6,0,0,0,0,0,0,0,0,0,0,0,0,6,7,0,0,0,0,0,0,0,0,0,0,0,0,7,
+    5,1,1,1,1,9,0,2,1,1,1,9,0,5,8,0,2,1,1,1,9,0,2,1,1,1,1,8,
+    4,4,4,4,4,7,0,6,12,1,1,8,4,4,4,4,5,1,1,11,7,0,6,4,4,4,4,4,
+    4,4,4,4,4,7,0,6,7,4,4,4,4,4,4,4,4,4,4,6,7,0,6,4,4,4,4,4,
+    1,1,1,1,1,8,0,5,8,4,2,1,10,10,10,10,1,9,4,5,8,0,5,1,1,1,1,1,
+    4,4,4,4,4,4,0,0,0,0,6,10,10,10,10,10,10,7,,0,0,0,4,4,4,4,4,4,
+    1,1,1,1,1,9,0,2,9,0,6,10,10,10,10,10,10,7,4,2,9,0,2,1,1,1,1,1,
+    4,4,4,4,4,7,0,6,7,0,6,10,10,10,10,10,10,7,4,6,7,0,6,4,4,4,4,4,
+    2,1,1,1,1,8,0,5,8,0,5,1,1,1,1,1,1,8,4,5,8,0,5,1,1,1,1,9,
+    6,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,7,
+    6,0,2,1,1,9,0,2,1,1,1,9,0,2,9,0,2,1,1,1,9,0,2,1,1,9,0,7,
+    6,0,5,1,11,7,0,5,1,1,1,8,0,5,8,0,5,1,1,1,8,0,6,12,1,8,0,7,
+    6,3,0,0,6,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,7,0,0,3,7,
+    5,1,9,0,6,7,0,2,9,0,2,1,1,1,1,1,1,9,0,2,9,0,6,7,0,2,1,8,
+    2,1,8,0,5,8,0,6,7,0,5,1,1,1,1,1,1,8,0,6,7,0,5,8,0,5,1,9,
+    6,0,0,0,0,0,0,5,8,0,0,0,0,2,9,0,0,0,0,5,8,0,0,0,0,0,0,7,
+    6,0,2,1,1,1,1,1,1,1,1,9,0,6,7,0,2,1,1,1,1,1,1,1,1,9,0,7,
+    6,0,5,1,1,1,1,1,1,1,1,8,0,5,8,0,5,1,1,1,1,1,1,1,1,8,0,7,
+    6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,
+    5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8 
 ]
 
 
@@ -63,16 +64,31 @@ function createBoard() {
         if(layout[i] === 0) {
             squares[i].classList.add('pac-dot')
         } else if (layout[i] === 1) {
-            squares[i].classList.add('wall')
-        } else if (layout[i] === 2) {
+            squares[i].classList.add('wall-horizontal')
+        } else if (layout[i] === 10) {
             squares[i].classList.add('ghost-lair')   
         } else if (layout[i] === 3) {
             squares[i].classList.add('power-pellet')
+        } else if (layout[i] === 5) {
+            squares[i].classList.add('wall-curve-top-left')
+        } else if (layout[i] === 6) {
+            squares[i].classList.add('wall-vertical-left')
+        } else if (layout[i] === 7) {
+            squares[i].classList.add('wall-vertical-right')
+        } else if (layout[i] === 8) {
+            squares[i].classList.add('wall-curve-top-right')
+        } else if (layout[i] === 9) {
+            squares[i].classList.add('wall-curve-bottom-right')
+        } else if (layout[i] === 2) {
+            squares[i].classList.add('wall-curve-bottom-left')
+        } else if (layout[i] === 11) {
+            squares[i].classList.add('wall-curve-top-left2')
+        } else if (layout[i] === 12) {
+            squares[i].classList.add('wall-curve-top-right2')
         }
     }
 }
 createBoard()
-
 
 //start position of pacman
 let pacmanCurrentIndex = 490
@@ -84,7 +100,7 @@ function control(e) {
     switch (e.keyCode) {
         case 40:
         if (
-            !squares[pacmanCurrentIndex + width].classList.contains('wall') &&
+            !squares[pacmanCurrentIndex + width].classList.contains('wall-horizontal') &&
             !squares[pacmanCurrentIndex + width].classList.contains('ghost-lair') &&
             pacmanCurrentIndex + width < width * width) 
             pacmanCurrentIndex += width
@@ -93,7 +109,7 @@ function control(e) {
         break
         case 38:
         if (
-            !squares[pacmanCurrentIndex - width].classList.contains('wall') &&
+            !squares[pacmanCurrentIndex - width].classList.contains('wall-horizontal') &&
             !squares[pacmanCurrentIndex - width].classList.contains('ghost-lair') &&
             pacmanCurrentIndex - width >= 0)
             pacmanCurrentIndex -= width
@@ -102,7 +118,7 @@ function control(e) {
         break
         case 37:
         if (
-            !squares[pacmanCurrentIndex - 1].classList.contains('wall') &&
+            !squares[pacmanCurrentIndex - 1].classList.contains('wall-horizontal') &&
             !squares[pacmanCurrentIndex - 1].classList.contains('ghost-lair') &&
             pacmanCurrentIndex % width !== 0)            
             pacmanCurrentIndex -=1
@@ -112,7 +128,7 @@ function control(e) {
         break
         case 39:
         if (
-            !squares[pacmanCurrentIndex + 1].classList.contains('wall') &&
+            !squares[pacmanCurrentIndex + 1].classList.contains('wall-horizontal') &&
             !squares[pacmanCurrentIndex + 1].classList.contains('ghost-lair') &&
             pacmanCurrentIndex % width < width - 1)
             pacmanCurrentIndex +=1
