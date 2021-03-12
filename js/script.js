@@ -165,6 +165,7 @@ function control(e) {
     pacDotEaten()
     powerPelletEaten()
     checkForWin()
+    eatScaredGhost()
     checkForGameOver()
 }
 
@@ -259,12 +260,23 @@ function moveGhost(ghost) {
 
 function checkForGameOver() {
     if (
-        !squares[pacmanCurrentIndex].classList.contains('scared-ghost') &&
+        // !squares[pacmanCurrentIndex].classList.contains('scared-ghost') &&
         squares[pacmanCurrentIndex].classList.contains('ghost')) { 
         ghosts.forEach(ghost => clearInterval(ghost.timerId))
         document.removeEventListener('keyup', control)
         scoreDisplay.innerHTML = "YOU LOSE"
     } 
+}
+
+function eatScaredGhost() {
+    if (
+        squares[pacmanCurrentIndex].classList.contains('scared-ghost')
+        ) {
+        squares[pacmanCurrentIndex].classList.remove('ghost', 'scared-ghost')
+        ghost.currentIndex = startIndex
+        squares[ghost.currentIndex].classList.add(ghost.className)
+        score +=200
+    }
 }
 
 function checkForWin() {
