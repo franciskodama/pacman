@@ -101,6 +101,12 @@ function control(e) {
         case 40:
         if (
             !squares[pacmanCurrentIndex + width].classList.contains('wall-horizontal') &&
+            !squares[pacmanCurrentIndex + width].classList.contains('wall-vertical-right') &&
+            !squares[pacmanCurrentIndex + width].classList.contains('wall-vertical-left') &&
+            !squares[pacmanCurrentIndex + width].classList.contains('wall-curve-top-left') &&
+            !squares[pacmanCurrentIndex + width].classList.contains('wall-curve-top-right') &&
+            !squares[pacmanCurrentIndex + width].classList.contains('wall-curve-bottom-right') &&
+            !squares[pacmanCurrentIndex + width].classList.contains('wall-curve-bottom-left') &&
             !squares[pacmanCurrentIndex + width].classList.contains('ghost-lair') &&
             pacmanCurrentIndex + width < width * width) 
             pacmanCurrentIndex += width
@@ -110,6 +116,12 @@ function control(e) {
         case 38:
         if (
             !squares[pacmanCurrentIndex - width].classList.contains('wall-horizontal') &&
+            !squares[pacmanCurrentIndex - width].classList.contains('wall-vertical-right') &&
+            !squares[pacmanCurrentIndex - width].classList.contains('wall-vertical-left') &&
+            !squares[pacmanCurrentIndex - width].classList.contains('wall-curve-top-left') &&
+            !squares[pacmanCurrentIndex - width].classList.contains('wall-curve-top-right') &&
+            !squares[pacmanCurrentIndex - width].classList.contains('wall-curve-bottom-right') &&
+            !squares[pacmanCurrentIndex - width].classList.contains('wall-curve-bottom-left') &&
             !squares[pacmanCurrentIndex - width].classList.contains('ghost-lair') &&
             pacmanCurrentIndex - width >= 0)
             pacmanCurrentIndex -= width
@@ -119,6 +131,12 @@ function control(e) {
         case 37:
         if (
             !squares[pacmanCurrentIndex - 1].classList.contains('wall-horizontal') &&
+            !squares[pacmanCurrentIndex - 1].classList.contains('wall-vertical-right') &&
+            !squares[pacmanCurrentIndex - 1].classList.contains('wall-vertical-left') &&
+            !squares[pacmanCurrentIndex - 1].classList.contains('wall-curve-top-left') &&
+            !squares[pacmanCurrentIndex - 1].classList.contains('wall-curve-top-right') &&
+            !squares[pacmanCurrentIndex - 1].classList.contains('wall-curve-bottom-right') &&
+            !squares[pacmanCurrentIndex - 1].classList.contains('wall-curve-bottom-left') &&
             !squares[pacmanCurrentIndex - 1].classList.contains('ghost-lair') &&
             pacmanCurrentIndex % width !== 0)            
             pacmanCurrentIndex -=1
@@ -129,6 +147,12 @@ function control(e) {
         case 39:
         if (
             !squares[pacmanCurrentIndex + 1].classList.contains('wall-horizontal') &&
+            !squares[pacmanCurrentIndex + 1].classList.contains('wall-vertical-right') &&
+            !squares[pacmanCurrentIndex + 1].classList.contains('wall-vertical-left') &&
+            !squares[pacmanCurrentIndex + 1].classList.contains('wall-curve-top-left') &&
+            !squares[pacmanCurrentIndex + 1].classList.contains('wall-curve-top-right') &&
+            !squares[pacmanCurrentIndex + 1].classList.contains('wall-curve-bottom-right') &&
+            !squares[pacmanCurrentIndex + 1].classList.contains('wall-curve-bottom-left') &&
             !squares[pacmanCurrentIndex + 1].classList.contains('ghost-lair') &&
             pacmanCurrentIndex % width < width - 1)
             pacmanCurrentIndex +=1
@@ -199,7 +223,13 @@ function moveGhost(ghost) {
 
     ghost.timerId = setInterval(function() {
          if (
-             !squares[ghost.currentIndex + direction].classList.contains('wall') &&
+             !squares[ghost.currentIndex + direction].classList.contains('wall-horizontal') &&
+             !squares[ghost.currentIndex + direction].classList.contains('wall-vertical-left') &&
+             !squares[ghost.currentIndex + direction].classList.contains('wall-vertical-right') &&
+             !squares[ghost.currentIndex + direction].classList.contains('wall-curve-top-left') &&
+             !squares[ghost.currentIndex + direction].classList.contains('wall-curve-top-right') &&
+             !squares[ghost.currentIndex + direction].classList.contains('wall-curve-bottom-right') &&
+             !squares[ghost.currentIndex + direction].classList.contains('wall-curve-bottom-left') &&
              !squares[ghost.currentIndex + direction].classList.contains('ghost')
             ) {
                 squares[ghost.currentIndex].classList.remove(ghost.className)
