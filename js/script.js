@@ -1,4 +1,3 @@
-
 const width = 28
 let squares = []
 let score = 0
@@ -8,6 +7,18 @@ let score = 0
 
 const grid = document.querySelector('.grid')
 const scoreDisplay = document.getElementById('score')
+const startButton = document.getElementById('start');
+
+const upButton = document.querySelector('.btn-up');
+const downButton = document.querySelector('.btn-down');
+const rightButton = document.querySelector('.btn-right');
+const leftButton = document.querySelector('.btn-left');
+
+// const audioBite = document.getElementById('audio-bite'); 
+// const audioStart = document.getElementById('audio-start'); 
+// const audioDie = document.getElementById('audio-die'); 
+// const audioTurn = document.getElementById('audio-turn');
+// const gameOver = document.getElementById('over');
 
 //28 *28 = 784
   // 0 - pac-dot
@@ -49,11 +60,25 @@ const layout = [
 
 //EVENT LISTENERS --------------------------
 document.addEventListener('keyup', control)
+startButton.addEventListener('click', startGame);
+
+
+upButton.addEventListener('click', function(){
+    control(38)
+});
+// downButton.addEventListener('click', control(40));
+// rightButton.addEventListener('click', control(39));
+// leftButton.addEventListener('click', control(37));
+
+
+// upButton.addEventListener('click', controlUp);
+// downButton.addEventListener('click', controlDown);
+// rightButton.addEventListener('click', controlRight);
+// leftButton.addEventListener('click', controlLeft);
 
 
 //FUNCTIONS --------------------------------
 
-//create board
 function createBoard() {
     for (let i = 0; i < layout.length; i++) {
         const square = document.createElement('div')
@@ -89,6 +114,10 @@ function createBoard() {
     }
 }
 createBoard()
+
+function startGame(){
+    console.log("Hello World")
+}
 
 //start position of pacman
 let pacmanCurrentIndex = 490
@@ -260,7 +289,6 @@ function moveGhost(ghost) {
 
 function checkForGameOver() {
     if (
-        // !squares[pacmanCurrentIndex].classList.contains('scared-ghost') &&
         squares[pacmanCurrentIndex].classList.contains('ghost')) { 
         ghosts.forEach(ghost => clearInterval(ghost.timerId))
         document.removeEventListener('keyup', control)
@@ -286,4 +314,108 @@ function checkForWin() {
         scoreDisplay.innerHTML = "YOU WON"
     }
 }
+
+// -----------------------------
+
+
+// function controlUp() {
+//     squares[pacmanCurrentIndex].classList.remove('pacman-right', 'pacman-left', 'pacman-down', 'pacman-up')
+//     if (
+//         !squares[pacmanCurrentIndex - width].classList.contains('wall-horizontal') &&
+//         !squares[pacmanCurrentIndex - width].classList.contains('wall-vertical-right') &&
+//         !squares[pacmanCurrentIndex - width].classList.contains('wall-vertical-left') &&
+//         !squares[pacmanCurrentIndex - width].classList.contains('wall-curve-top-left') &&
+//         !squares[pacmanCurrentIndex - width].classList.contains('wall-curve-top-right') &&
+//         !squares[pacmanCurrentIndex - width].classList.contains('wall-curve-bottom-right') &&
+//         !squares[pacmanCurrentIndex - width].classList.contains('wall-curve-bottom-left') &&
+//         !squares[pacmanCurrentIndex - width].classList.contains('ghost-lair') &&
+//         pacmanCurrentIndex - width >= 0)
+//         pacmanCurrentIndex -= width
+//         squares[pacmanCurrentIndex].classList.remove('pacman-left', 'pacman-right', 'pacman-down')
+//         squares[pacmanCurrentIndex].classList.add('pacman-up')
+//         pacDotEaten()
+//         powerPelletEaten()
+//         checkForWin()
+//         eatScaredGhost()
+//         checkForGameOver()
+// }
+
+// function controlDown() {
+//     squares[pacmanCurrentIndex].classList.remove('pacman-right', 'pacman-left', 'pacman-down', 'pacman-up')
+//     if (
+//         !squares[pacmanCurrentIndex + width].classList.contains('wall-horizontal') &&
+//         !squares[pacmanCurrentIndex + width].classList.contains('wall-vertical-right') &&
+//         !squares[pacmanCurrentIndex + width].classList.contains('wall-vertical-left') &&
+//         !squares[pacmanCurrentIndex + width].classList.contains('wall-curve-top-left') &&
+//         !squares[pacmanCurrentIndex + width].classList.contains('wall-curve-top-right') &&
+//         !squares[pacmanCurrentIndex + width].classList.contains('wall-curve-bottom-right') &&
+//         !squares[pacmanCurrentIndex + width].classList.contains('wall-curve-bottom-left') &&
+//         !squares[pacmanCurrentIndex + width].classList.contains('ghost-lair') &&
+//         pacmanCurrentIndex + width < width * width) 
+//         pacmanCurrentIndex += width
+//         squares[pacmanCurrentIndex].classList.remove('pacman-left', 'pacman-right', 'pacman-up')
+//         squares[pacmanCurrentIndex].classList.add('pacman-down')
+//         pacDotEaten()
+//         powerPelletEaten()
+//         checkForWin()
+//         eatScaredGhost()
+//         checkForGameOver()
+// }
+
+// function controlRight() {
+//     squares[pacmanCurrentIndex].classList.remove('pacman-right', 'pacman-left', 'pacman-down', 'pacman-up')
+//     if (
+//         !squares[pacmanCurrentIndex + 1].classList.contains('wall-horizontal') &&
+//         !squares[pacmanCurrentIndex + 1].classList.contains('wall-vertical-right') &&
+//         !squares[pacmanCurrentIndex + 1].classList.contains('wall-vertical-left') &&
+//         !squares[pacmanCurrentIndex + 1].classList.contains('wall-curve-top-left') &&
+//         !squares[pacmanCurrentIndex + 1].classList.contains('wall-curve-top-right') &&
+//         !squares[pacmanCurrentIndex + 1].classList.contains('wall-curve-bottom-right') &&
+//         !squares[pacmanCurrentIndex + 1].classList.contains('wall-curve-bottom-left') &&
+//         !squares[pacmanCurrentIndex + 1].classList.contains('ghost-lair') &&
+//         pacmanCurrentIndex % width < width - 1)
+//         pacmanCurrentIndex +=1
+//         squares[pacmanCurrentIndex].classList.remove('pacman-left', 'pacman-down', 'pacman-up')
+//         squares[pacmanCurrentIndex].classList.add('pacman-right')
+//     if (pacmanCurrentIndex === 391) pacmanCurrentIndex = 364
+//     pacDotEaten()
+//     powerPelletEaten()
+//     checkForWin()
+//     eatScaredGhost()
+//     checkForGameOver()
+// }
+
+// function controlLeft() {
+//     squares[pacmanCurrentIndex].classList.remove('pacman-right', 'pacman-left', 'pacman-down', 'pacman-up')
+//     if (
+//         !squares[pacmanCurrentIndex - 1].classList.contains('wall-horizontal') &&
+//         !squares[pacmanCurrentIndex - 1].classList.contains('wall-vertical-right') &&
+//         !squares[pacmanCurrentIndex - 1].classList.contains('wall-vertical-left') &&
+//         !squares[pacmanCurrentIndex - 1].classList.contains('wall-curve-top-left') &&
+//         !squares[pacmanCurrentIndex - 1].classList.contains('wall-curve-top-right') &&
+//         !squares[pacmanCurrentIndex - 1].classList.contains('wall-curve-bottom-right') &&
+//         !squares[pacmanCurrentIndex - 1].classList.contains('wall-curve-bottom-left') &&
+//         !squares[pacmanCurrentIndex - 1].classList.contains('ghost-lair') &&
+//         pacmanCurrentIndex % width !== 0)            
+//         pacmanCurrentIndex -=1
+//         squares[pacmanCurrentIndex].classList.remove('pacman-down', 'pacman-right', 'pacman-up')
+//         squares[pacmanCurrentIndex].classList.add('pacman-left')
+//     if (pacmanCurrentIndex === 364) pacmanCurrentIndex = 391
+//     pacDotEaten()
+//     powerPelletEaten()
+//     checkForWin()
+//     eatScaredGhost()
+//     checkForGameOver()
+// }
+
+// function playDie() { 
+//     clearInterval(timerId);
+//     gameOver.style.display = 'block';
+//     gameOver.classList.add('gameover');
+//     audioDie.play();
+// }
+
+
+
+
 
