@@ -34,7 +34,7 @@ Using Javascript and CSS, I redesigned the entire game, adding buttons to start 
 </br>
 </br>
 
-# About Me 😎
+## About Me 😎
 
 <br />
 
@@ -46,7 +46,7 @@ Using Javascript and CSS, I redesigned the entire game, adding buttons to start 
 </br>
 
 <a href="https://www.fkodama.com/" target="_blank">
-<img align="left" width="196px" src="https://www.fkodama.com/franciskodama/portfolio.svg"  />
+<img align="left" width="40px" src="https://www.fkodama.com/_permanent-files/git/portfolio.svg"  />
 </a>
 
 </br>
@@ -58,39 +58,19 @@ Using Javascript and CSS, I redesigned the entire game, adding buttons to start 
 
 <br />
 <a href="https://www.fkodama.com/" target="_blank">
-<img align="left" width="40px" src="https://www.fkodama.com/franciskodama/website.svg"  />
+<img align="left" width="40px" src="https://www.fkodama.com/_permanent-files/git/website.svg"  />
 </a>
 
 <a href="https://www.linkedin.com/in/kodama/" target="_blank">
-  <img align="left" width="40px" src="https://www.fkodama.com/franciskodama/linkedin.svg"  />
+  <img align="left" width="40px" src="https://www.fkodama.com/_permanent-files/git/linkedin.svg"  />
 </a>
 <a href="https://www.instagram.com" target="_blank">
-  <img align="left" width="40px" src="https://www.fkodama.com/franciskodama/instagram.svg"  />
+  <img align="left" width="40px" src="https://www.fkodama.com/_permanent-files/git/instagram.svg"  />
 </a>
 <a href="mailto:fk@fkodama.com">
-  <img align="left" width="43px" src="https://www.fkodama.com/franciskodama/email.svg" />
+  <img align="left" width="43px" src="https://www.fkodama.com/_permanent-files/git/email.svg" />
 </a>
 
 </br>
 </br>
-
-<hr />
-
-### 🤖 Technologies I love and use
-
-<div style="display: inline_block"><br>
-<img align="left" alt="HTML5" width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" style="padding-right:10px;" />
-<img align="left" alt="CSS3" width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" style="padding-right:10px;" />
-<img align="center" alt="js" height="40px" padding-right="15px"src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-<img align="center" alt="React" height="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">                 
-<img align="left" alt="Sass" width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" style="padding-right:10px;" />                 
-<img align="left" alt="Git" height="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" style="padding-right:10px;" />
-<img align="left" alt="GitHub" height="40px" src="https://user-images.githubusercontent.com/3369400/139448065-39a229ba-4b06-434b-bc67-616e2ed80c8f.png" style="padding-right:10px;" />
-<img align="center" alt="Figma" height="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg">  
-<img align="center" alt="Adobe Photoshop" height="40px" src="https://www.fkodama.com/franciskodama/adobe-photoshop.svg">  
-<img align="center" alt="Adobe XD" height="40px" src="https://www.fkodama.com/franciskodama/adobe-xd.svg">                                                   
-</div>
-
-<br />
-<br />
 <hr />
