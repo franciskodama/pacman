@@ -31,12 +31,14 @@ Using Javascript and CSS, I redesigned the entire game, adding buttons to start 
 By the way, thanks, Ania! Your videos are awesome. You helped me a lot in my coding journey!
 
 <a href="https://www.youtube.com/watch?v=CeUGlSl2i4Q&t=45s" target="_blank">
-<img align="left" width="40px" src="https://www.fkodama.com/_permanent-files/git/youtube.svg"  />
+<img align="left" width="40px" src="https://www.fkodama.com/_permanent-files/git/youtube.svg" />
 </a>
 </br>
 </br>
 
-## About Me 😎
+<hr />
+
+# About Me 😎
 
 <br />
 
