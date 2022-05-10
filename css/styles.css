@@ -527,7 +527,7 @@ button:focus {
   .btn-right,
   .btn-down,
   .btn-left {
-    /* display: none; */
+    display: none;
   }
 
   .button-start {
