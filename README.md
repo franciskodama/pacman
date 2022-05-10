@@ -1,14 +1,12 @@
-# Hi there! I'm Francis Kodama! 👋
+### Hi there! I'm Francis Kodama! 👋
 
-## Welcome to my PAC MAN PROJECT. 👻
+## WELCOME TO MY PAC MAN PROJECT. 👻
 
 <hr />
 
 # this.Project 📖
 
-<br />
-
-### Here's a tutorial project I took to a whole new level.
+Here's a tutorial project I took to a whole new level.
 
 ## Why?
 
