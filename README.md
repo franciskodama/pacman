@@ -28,8 +28,10 @@ Using Javascript and CSS, I redesigned the entire game, adding buttons to start 
 
 ## Compare with original: Ania Kubów's Tutorial
 
+By the way, thanks, Ania! Your videos are awesome. You helped me a lot in my coding journey!
+
 <a href="https://www.youtube.com/watch?v=CeUGlSl2i4Q&t=45s" target="_blank">
-<img align="left" width="196px" src="https://www.fkodama.com/_permanent-files/git/youtube.svg"  />
+<img align="left" width="40px" src="https://www.fkodama.com/_permanent-files/git/youtube.svg"  />
 </a>
 </br>
 </br>
@@ -46,7 +48,7 @@ Using Javascript and CSS, I redesigned the entire game, adding buttons to start 
 </br>
 
 <a href="https://www.fkodama.com/" target="_blank">
-<img align="left" width="40px" src="https://www.fkodama.com/_permanent-files/git/portfolio.svg"  />
+<img align="left" width="196px" src="https://www.fkodama.com/_permanent-files/git/portfolio.svg"  />
 </a>
 
 </br>
@@ -73,4 +75,5 @@ Using Javascript and CSS, I redesigned the entire game, adding buttons to start 
 
 </br>
 </br>
+
 <hr />
