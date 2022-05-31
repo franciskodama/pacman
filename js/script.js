@@ -857,7 +857,7 @@ function createBoard() {
 createBoard();
 
 function startGame() {
-  console.log("Hello World");
+  location.reload();
 }
 
 //start position of pacman
